@@ -44,7 +44,9 @@ def register(request):
             # Save the user object 
             new_user.save()
             return render(request, 'account/register_done.html', {'new_user': new_user})
-        
         else:
-            user_form = UserRegistrationForm()
-        return render(request, 'account/register.html', {'user_form': user_form})
+            print('User form is not valid')
+        
+    else:
+        user_form = UserRegistrationForm()
+    return render(request, 'account/register.html', {'user_form': user_form})
